@@ -2,6 +2,12 @@
 {
     public abstract class BaseController
     {
+		protected UiInterface UiInterface;
+		protected BaseController()
+		{
+			UiInterface = new UiInterface();
+		}
+		
         public bool IsActive { get; private set; }
 
         public virtual void On()
@@ -19,11 +25,11 @@
             IsActive = false;
         }
 
-        public void Switch()
+        public void Switch(params BaseObjectScene[] obj)
         {
             if (!IsActive)
             {
-                On();
+                On(obj);
             }
             else
             {
