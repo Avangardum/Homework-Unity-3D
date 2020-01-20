@@ -41,9 +41,8 @@ namespace Geekbrains
 
         public void Initialization()
         {
-            Weapon[] weapons = Object.FindObjectsOfType<Weapon>();
-            if(weapons.Length > 0)
-                On(weapons);
+            Weapon weapon = Object.FindObjectOfType<Gun>();
+                On(weapon);
         }
     }
 }

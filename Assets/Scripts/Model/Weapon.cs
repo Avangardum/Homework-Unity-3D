@@ -15,7 +15,7 @@ namespace Geekbrains
 
 		[SerializeField] protected Transform _barrel;
 		[SerializeField] protected float _force = 999;
-		[SerializeField] protected float _rechergeTime = 0.2f;
+		[SerializeField] protected float _rechargeTime = 0.2f;
 		private Queue<Clip> _clips = new Queue<Clip>();
 
 		protected bool _isReady = true;
