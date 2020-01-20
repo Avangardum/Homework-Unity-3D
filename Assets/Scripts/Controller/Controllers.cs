@@ -5,9 +5,9 @@ namespace Geekbrains
 {
     public sealed class Controllers : IInitialization
     {
-        private readonly IExecute[] _executeControllers;
+        private readonly BaseController[] _executeAndInitializeControllers;
 
-        public int Length => _executeControllers.Length;
+        public int Length => _executeAndInitializeControllers.Length;
 
         public Controllers()
         {
@@ -24,20 +24,23 @@ namespace Geekbrains
             ServiceLocator.SetService(new PlayerController(motor));
             ServiceLocator.SetService(new FlashLightController());
             ServiceLocator.SetService(new InputController());
-            _executeControllers = new IExecute[3];
+            ServiceLocator.SetService(new WeaponController());
+            _executeAndInitializeControllers = new BaseController[4];
 
-            _executeControllers[0] = ServiceLocator.Resolve<PlayerController>();
+            _executeAndInitializeControllers[0] = ServiceLocator.Resolve<PlayerController>();
 
-            _executeControllers[1] = ServiceLocator.Resolve<FlashLightController>();
+            _executeAndInitializeControllers[1] = ServiceLocator.Resolve<FlashLightController>();
 
-            _executeControllers[2] = ServiceLocator.Resolve<InputController>();
+            _executeAndInitializeControllers[2] = ServiceLocator.Resolve<InputController>();
+
+            _executeAndInitializeControllers[3] = ServiceLocator.Resolve<WeaponController>();
         }
         
-        public IExecute this[int index] => _executeControllers[index];
+        public BaseController this[int index] => _executeAndInitializeControllers[index];
 
         public void Initialization()
         {
-            foreach (var controller in _executeControllers)
+            foreach (var controller in _executeAndInitializeControllers)
             {
                 if (controller is IInitialization initialization)
                 {

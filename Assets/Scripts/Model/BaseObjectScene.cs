@@ -7,8 +7,15 @@ namespace Geekbrains
         public Rigidbody Rigidbody { get; private set; }
         public Transform Transform { get; private set; }
 
+        private MeshRenderer _meshRenderer;
         private int _layer;
         private bool _isPhysicsEnabled;
+
+        public bool IsVisible
+        {
+            get => _meshRenderer.enabled;
+            set => _meshRenderer.enabled = value;
+        }
 
         public int Layer
         {
@@ -45,6 +52,7 @@ namespace Geekbrains
         {
             Rigidbody = GetComponent<Rigidbody>();
             Transform = transform;
+            _meshRenderer = GetComponent<MeshRenderer>();
         }
     }
 }

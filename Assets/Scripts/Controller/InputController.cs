@@ -17,7 +17,7 @@ namespace Geekbrains
 
             if (Input.GetMouseButtonDown(_shootMouseButton))
             {
-                
+                ServiceLocator.Resolve<WeaponController>().Fire();
             }
         }
     }
