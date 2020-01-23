@@ -16,6 +16,8 @@ namespace Geekbrains
             _health -= value;
             if (_health < 0)
                 _health = 0;
+            if(_health == 0)
+                Destroy(gameObject);
         }
     }
 
