@@ -4,6 +4,6 @@ namespace Geekbrains
 {
     public interface IDamagable
     {
-        void Damage(int value);
+        void Damage(float value);
     }
 }

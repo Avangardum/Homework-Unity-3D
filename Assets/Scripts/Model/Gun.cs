@@ -6,8 +6,7 @@
 		{
 			if (!_isReady) return;
 			if (Clip.CountAmmunition <= 0) return;
-            print(_barrel.position);
-			var temAmmunition = Instantiate(Ammunition, _barrel.position, _barrel.rotation);//todo Pool object
+            var temAmmunition = Instantiate(Ammunition, _barrel.position, _barrel.rotation);//todo Pool object
 			temAmmunition.AddForce(_barrel.forward * _force);
 			Clip.CountAmmunition--;
 			_isReady = false;

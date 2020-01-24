@@ -7,6 +7,7 @@ namespace Geekbrains
         private KeyCode _activeFlashLight = KeyCode.F;
         private KeyCode _weapon1 = KeyCode.Alpha1;
         private KeyCode _weapon2 = KeyCode.Alpha2;
+        private KeyCode _reload = KeyCode.R;
         private int _shootMouseButton = 0;
 
         public void Execute()
@@ -32,6 +33,11 @@ namespace Geekbrains
             {
                 ServiceLocator.Resolve<WeaponController>().Off();
                 ServiceLocator.Resolve<WeaponController>().On(Object.FindObjectOfType<UgandaGun>());
+            }
+
+            if (Input.GetKeyDown(_reload))
+            {
+                ServiceLocator.Resolve<WeaponController>().ReloadClip();
             }
         }
     }
