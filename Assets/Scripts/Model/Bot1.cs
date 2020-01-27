@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.AI;
 
 namespace Geekbrains
 {
@@ -19,8 +18,15 @@ namespace Geekbrains
         [SerializeField] private float _maxHealth;
         [SerializeField] private float _shootingCooldown;
 
+        private NavMeshAgent _navMeshAgent;
         private float _currentShootingCooldown = 0;
         private State _state = State.Attacking;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+        }
 
         public void Damage(float value)
         {
@@ -41,7 +47,6 @@ namespace Geekbrains
 
         private void Shoot()
         {
-            print("shooting");
             GameObject bullet = GameObject.Instantiate(_ammo, _barrel.transform.position, _barrel.transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * _shootingForce);
         }
@@ -61,7 +66,7 @@ namespace Geekbrains
 
         private void Patrolling()
         {
-
+                _navMeshAgent.SetDestination(transform.position + Random.onUnitSphere);
         }
 
         private void Attacking()
