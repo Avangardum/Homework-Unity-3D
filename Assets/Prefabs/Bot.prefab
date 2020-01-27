@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 132065718413949523}
   - component: {fileID: 132065718413949520}
   - component: {fileID: 498942228284835684}
+  - component: {fileID: 7091899327338975485}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Untagged
@@ -219,11 +220,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a05ecc2ea106b4796c4c31d5447301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammo: {fileID: 0}
-  _barrel: {fileID: 0}
+  _ammo: {fileID: 4460634186709105759, guid: 8b2f63ff676feef458fb4bc8207abdff, type: 3}
+  _barrel: {fileID: 6171641867274768772}
   _shootingForce: 0
   _health: 50
   _maxHealth: 50
+  _shootingCooldown: 0
+--- !u!195 &7091899327338975485
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132065718413949521}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6171641867274768772
 GameObject:
   m_ObjectHideFlags: 0

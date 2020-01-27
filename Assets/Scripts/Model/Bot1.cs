@@ -19,7 +19,7 @@ namespace Geekbrains
         [SerializeField] private float _maxHealth;
         [SerializeField] private float _shootingCooldown;
 
-        private float _currentCooldown = 0;
+        private float _currentShootingCooldown = 0;
         private State _state = State.Attacking;
 
         public void Damage(float value)
@@ -41,6 +41,7 @@ namespace Geekbrains
 
         private void Shoot()
         {
+            print("shooting");
             GameObject bullet = GameObject.Instantiate(_ammo, _barrel.transform.position, _barrel.transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * _shootingForce);
         }
@@ -67,6 +68,16 @@ namespace Geekbrains
         {
             GameObject player = TagManager.GetObjectWithTag(TagManager.Tag.Player);
             transform.LookAt(player.transform);
+            if (_currentShootingCooldown == 0)
+            {
+                Shoot();
+                _currentShootingCooldown = _shootingCooldown;
+            }
+            _currentShootingCooldown -= Time.deltaTime;
+            if (_currentShootingCooldown < 0)
+            {
+                _currentShootingCooldown = 0;
+            }
         }
     }
 }
