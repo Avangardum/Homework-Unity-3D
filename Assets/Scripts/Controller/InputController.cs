@@ -45,9 +45,10 @@ namespace Geekbrains
             if (Input.GetKeyDown(_load))
             {
                 SaverController.Load();
-            if (Input.GetKeyDown(_reload))
-            {
-                ServiceLocator.Resolve<WeaponController>().ReloadClip();
+                if (Input.GetKeyDown(_reload))
+                {
+                    ServiceLocator.Resolve<WeaponController>().ReloadClip();
+                }
             }
         }
     }

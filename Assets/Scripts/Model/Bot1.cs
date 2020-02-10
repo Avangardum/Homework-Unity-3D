@@ -17,6 +17,7 @@ namespace Geekbrains
         [SerializeField] private float _health;
         [SerializeField] private float _maxHealth;
         [SerializeField] private float _shootingCooldown;
+        [SerializeField] private float _waypointDistance = 1;
 
         private NavMeshAgent _navMeshAgent;
         private float _currentShootingCooldown = 0;
@@ -66,7 +67,7 @@ namespace Geekbrains
 
         private void Patrolling()
         {
-                _navMeshAgent.SetDestination(transform.position + Random.onUnitSphere);
+            
         }
 
         private void Attacking()
@@ -83,6 +84,7 @@ namespace Geekbrains
             {
                 _currentShootingCooldown = 0;
             }
+            _navMeshAgent.SetDestination(transform.position + Random.onUnitSphere * _waypointDistance);
         }
     }
 }
