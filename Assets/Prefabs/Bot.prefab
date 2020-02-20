@@ -222,10 +222,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ammo: {fileID: 4460634186709105759, guid: 8b2f63ff676feef458fb4bc8207abdff, type: 3}
   _barrel: {fileID: 6171641867274768772}
-  _shootingForce: 0
+  _shootingForce: 0.2
   _health: 50
   _maxHealth: 50
-  _shootingCooldown: 0
+  _shootingCooldown: 1
+  _waypointDistance: 5
 --- !u!195 &7091899327338975485
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -271,13 +272,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6171641867274768772}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 1.3, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 5522642680629473683}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &6842238326873646393
 GameObject:
   m_ObjectHideFlags: 0
