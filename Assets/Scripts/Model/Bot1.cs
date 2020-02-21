@@ -74,6 +74,7 @@ namespace Geekbrains
         {
             GameObject player = TagManager.GetObjectWithTag(TagManager.Tag.Player);
             transform.LookAt(player.transform);
+            transform.rotation = Quaternion.Euler(new Vector3(0, transform.eulerAngles.y, 0));
             if (_currentShootingCooldown == 0)
             {
                 Shoot();
