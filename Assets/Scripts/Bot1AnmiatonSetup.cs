@@ -3,6 +3,7 @@
 public class Bot1AnmiatonSetup : MonoBehaviour
 {
     [SerializeField] private Transform _gunHoldingPoint;
+    [SerializeField] private Transform _lookAtPoint;
     [SerializeField] private float _rotationSpeedForFullTurn;
 
     private Animator _animator;
@@ -19,11 +20,14 @@ public class Bot1AnmiatonSetup : MonoBehaviour
         _turnId = Animator.StringToHash("Turn");
         _animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
         _animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+        _animator.SetLookAtWeight(1);
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         SpeedAndRotationSetup();
+        HandsIK();
+        HeadIK();
     }
 
     private void SpeedAndRotationSetup()
@@ -43,9 +47,15 @@ public class Bot1AnmiatonSetup : MonoBehaviour
         _previousFrameYRotation = transform.rotation.y;
     }
 
-    private void HandIKSetup()
+    private void HandsIK()
     {
         _animator.SetIKPosition(AvatarIKGoal.LeftHand, _gunHoldingPoint.position);
         _animator.SetIKPosition(AvatarIKGoal.RightHand, _gunHoldingPoint.position);
+    }
+
+    private void HeadIK()
+    {
+        print(569365);
+        _animator.SetLookAtPosition(_lookAtPoint.position);
     }
 }
