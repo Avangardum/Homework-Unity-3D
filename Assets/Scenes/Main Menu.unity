@@ -1745,3 +1745,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textEN: Play
   _textRU: "\u0418\u0433\u0440\u0430\u0442\u044C"
+  _sceneName: Scene 2
