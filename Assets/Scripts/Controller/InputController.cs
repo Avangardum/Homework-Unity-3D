@@ -10,6 +10,7 @@ namespace Geekbrains
         private KeyCode _save = KeyCode.F5;
         private KeyCode _load = KeyCode.F9;
         private KeyCode _reload = KeyCode.R;
+        private KeyCode _pause = KeyCode.P;
         private int _shootMouseButton = 0;
 
         public void Execute()
@@ -49,6 +50,11 @@ namespace Geekbrains
                 {
                     ServiceLocator.Resolve<WeaponController>().ReloadClip();
                 }
+            }
+
+            if(Input.GetKeyDown(_pause))
+            {
+                Object.FindObjectOfType<PauseController>().Switch();
             }
         }
     }
