@@ -55,7 +55,6 @@ public class Bot1AnmiatonSetup : MonoBehaviour
 
     private void HeadIK()
     {
-        print(569365);
         _animator.SetLookAtPosition(_lookAtPoint.position);
     }
 }
