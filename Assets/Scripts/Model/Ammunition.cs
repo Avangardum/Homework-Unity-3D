@@ -4,8 +4,9 @@ namespace Geekbrains
 {
     public abstract class Ammunition : BaseObjectScene
     {
-        [SerializeField] private float _timeToDestruct = 10;
-        [SerializeField] private float _baseDamage = 10;
+        [SerializeField] private AmmunitionData _data;
+        [SerializeField] private float _timeToDestruct => _data.TimeToDestruct;
+        [SerializeField] private float _baseDamage => _data.Damage;
         protected float _curDamage;
         private float _lossOfDamageAtTime = 0.2f;
 
@@ -38,7 +39,6 @@ namespace Geekbrains
         {
             Destroy(gameObject, timeToDestruct);
             CancelInvoke(nameof(LossOfDamage));
-            // Вернуть в пул
         }
     }
 }
