@@ -19,6 +19,7 @@ public class PauseController : MonoBehaviour
         IsPaused = true;
         Time.timeScale = 0;
         _pauseMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Unpause()
@@ -26,6 +27,7 @@ public class PauseController : MonoBehaviour
         IsPaused = false;
         Time.timeScale = 1;
         _pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Switch()
