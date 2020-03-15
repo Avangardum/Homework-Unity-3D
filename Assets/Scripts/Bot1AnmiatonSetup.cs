@@ -27,7 +27,7 @@ public class Bot1AnmiatonSetup : MonoBehaviour
     {
         SpeedAndRotationSetup();
         HandsIK();
-        HeadIK();
+        //HeadIK();
     }
 
     private void SpeedAndRotationSetup()
@@ -53,8 +53,8 @@ public class Bot1AnmiatonSetup : MonoBehaviour
         _animator.SetIKPosition(AvatarIKGoal.RightHand, _gunHoldingPoint.position);
     }
 
-    private void HeadIK()
-    {
-        _animator.SetLookAtPosition(_lookAtPoint.position);
-    }
+    //private void HeadIK()
+    //{
+    //    _animator.SetLookAtPosition(_lookAtPoint.position);
+    //}
 }
